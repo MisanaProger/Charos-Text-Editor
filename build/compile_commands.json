@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/mihail/Documents/ Charos-Text-Editor/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I\"/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/include\" -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/Charos-Text-Editor.dir/Charos-Text-Editor_autogen/mocs_compilation.cpp.o -c \"/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/mocs_compilation.cpp\"",
+  "file": "/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/home/mihail/Documents/ Charos-Text-Editor/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I\"/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/include\" -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/Charos-Text-Editor.dir/main.cpp.o -c \"/home/mihail/Documents/ Charos-Text-Editor/main.cpp\"",
+  "file": "/home/mihail/Documents/ Charos-Text-Editor/main.cpp"
+},
+{
+  "directory": "/home/mihail/Documents/ Charos-Text-Editor/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I\"/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/include\" -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/Charos-Text-Editor.dir/mainwindow.cpp.o -c \"/home/mihail/Documents/ Charos-Text-Editor/mainwindow.cpp\"",
+  "file": "/home/mihail/Documents/ Charos-Text-Editor/mainwindow.cpp"
+},
+{
+  "directory": "/home/mihail/Documents/ Charos-Text-Editor/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I\"/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/include\" -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/Charos-Text-Editor.dir/tabpage.cpp.o -c \"/home/mihail/Documents/ Charos-Text-Editor/tabpage.cpp\"",
+  "file": "/home/mihail/Documents/ Charos-Text-Editor/tabpage.cpp"
+},
+{
+  "directory": "/home/mihail/Documents/ Charos-Text-Editor/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I\"/home/mihail/Documents/ Charos-Text-Editor/build/Charos-Text-Editor_autogen/include\" -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/Charos-Text-Editor.dir/savefiledialog.cpp.o -c \"/home/mihail/Documents/ Charos-Text-Editor/savefiledialog.cpp\"",
+  "file": "/home/mihail/Documents/ Charos-Text-Editor/savefiledialog.cpp"
+}
+]

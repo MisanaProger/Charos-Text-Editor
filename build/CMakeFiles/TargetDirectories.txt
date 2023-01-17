@@ -1,0 +1,9 @@
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/Charos-Text-Editor.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/edit_cache.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/rebuild_cache.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/list_install_components.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/install.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/install/local.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/install/strip.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/Charos-Text-Editor_autogen_timestamp_deps.dir
+/home/mihail/Documents/ Charos-Text-Editor/build/CMakeFiles/Charos-Text-Editor_autogen.dir
