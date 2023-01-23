@@ -26,6 +26,12 @@ set(PROJECT_SOURCES
         savepagecontentcheckbutton.h
         savepagecontentcheckbutton.cpp
         savepagecontentcheckbutton.ui
+        startpage.h
+        startpage.cpp
+        startpage.ui
+        statusbar.h
+        statusbar.cpp
+        statusbar.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

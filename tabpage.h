@@ -3,7 +3,10 @@
 
 #include <QWidget>
 #include <QFile>
+#include <QTextDocument>
 #include <QFileInfo>
+#include <QStringList>
+#include <QTextOption>
 #include <QTextStream>
 
 namespace Ui
@@ -28,13 +31,14 @@ signals:
     void SetSaveState(bool);
     void SetSelectAllState(bool);
     void UpdateTitle(QString);
+    void UpdateStatusBar(int line, int chars);
 
 public:
     static TabPage *OpenFile(QString path, QWidget *parent);
     static TabPage *NewFile(QWidget *parent);
 
     void SaveFile(QString path);
-    void Activate();
+    void Activate(QTextOption::WrapMode wrapMode);
     bool NeedToBeSaved();
     bool CanBeSaved();
 
@@ -50,18 +54,22 @@ public:
     QString GetFilePath();
     ~TabPage();
 
+    int GetCurrentLineIndex();
+    int GetCountOfCharsInLeftOfCursor();
+
 private slots:
     void textEdited();
     void setUndoState(bool val);
     void setRedoState(bool val);
     void setCopyAndCutState(bool val);
+    void updateSatusBar();
 
 private:
     explicit TabPage(QWidget *parent = nullptr);
     QString _lastSavedContent;
     TextEditState _state;
     QFileInfo *_file;
-    Ui::TabPage *ui;
+    Ui::TabPage *_ui;
 };
 
 #endif // TABPAGE_H

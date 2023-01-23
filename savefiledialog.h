@@ -4,6 +4,7 @@
 #pragma once
 #include <QDialog>
 #include <QAbstractButton>
+#include <QPushButton>
 #include <QFileDialog>
 #include "tabpage.h"
 #include "savepagecontentcheckbutton.h"
@@ -24,9 +25,11 @@ public:
 private slots:
 
     void onClicked(QAbstractButton *button);
+    void updateSaveButton();
 
 private:
-    Ui::SaveFileDialog *ui;
+    bool isAnyFileChecked();
+    Ui::SaveFileDialog *_ui;
 };
 
 #endif // SAVEFILEDIALOG_H

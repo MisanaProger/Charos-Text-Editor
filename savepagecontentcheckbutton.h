@@ -14,16 +14,21 @@ class SavePageContentCheckButton : public QWidget
 {
     Q_OBJECT
 
+signals:
+    void checkedSignal(bool b);
+
 public:
     explicit SavePageContentCheckButton(TabPage *page, QWidget *parent = nullptr);
     bool isChecked();
+    void save();
 
     ~SavePageContentCheckButton();
+private slots:
+    void checked(bool b);
 
 private:
-    Ui::SavePageContentCheckButton *ui;
+    Ui::SavePageContentCheckButton *_ui;
     TabPage *_page;
-    friend class SaveFileDialog;
 };
 
 #endif // SAVEPAGECONTENTCHECKBUTTON_H

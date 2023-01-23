@@ -2,23 +2,29 @@
 #include "ui_savefiledialog.h"
 
 SaveFileDialog::SaveFileDialog(QList<TabPage *> pages, QWidget *parent) : QDialog(parent),
-                                                                          ui(new Ui::SaveFileDialog)
+                                                                          _ui(new Ui::SaveFileDialog)
 {
-    ui->setupUi(this);
+    _ui->setupUi(this);
     for (int i = 0; i < pages.count(); i++)
-        ui->verticalLayout_2->addWidget(new SavePageContentCheckButton(pages[i], this));
-    ui->verticalLayout_2->addSpacerItem(new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding));
-    connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &SaveFileDialog::onClicked);
+    {
+        SavePageContentCheckButton *checkBox = new SavePageContentCheckButton(pages[i]);
+        _ui->verticalLayout_2->addWidget(checkBox);
+        connect(checkBox, &SavePageContentCheckButton::checkedSignal,
+                this, &SaveFileDialog::updateSaveButton);
+    }
+    _ui->verticalLayout_2->addSpacerItem(new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding));
+    connect(_ui->buttonBox, &QDialogButtonBox::clicked, this, &SaveFileDialog::onClicked);
+    _ui->buttonBox->button(QDialogButtonBox::StandardButton::Save)->setEnabled(isAnyFileChecked());
 }
 
 SaveFileDialog::~SaveFileDialog()
 {
-    delete ui;
+    delete _ui;
 }
 
 void SaveFileDialog::onClicked(QAbstractButton *button)
 {
-    switch (ui->buttonBox->standardButton(button))
+    switch (_ui->buttonBox->standardButton(button))
     {
     case QDialogButtonBox::Save:
         qDebug("Save");
@@ -34,15 +40,24 @@ void SaveFileDialog::onClicked(QAbstractButton *button)
     }
 }
 
-void SaveFileDialog::saveFiles()
+void SaveFileDialog::updateSaveButton()
 {
-    auto pages = ui->field->findChildren <SavePageContentCheckButton *>();
+    _ui->buttonBox->button(QDialogButtonBox::StandardButton::Save)->setEnabled(isAnyFileChecked());
+}
+
+bool SaveFileDialog::isAnyFileChecked()
+{
+    auto pages = _ui->field->findChildren<SavePageContentCheckButton *>();
     for (int i = 0; i < pages.count(); i++)
         if (pages[i]->isChecked())
-        {
-            if (pages[i]->_page->CanBeSaved())
-                pages[i]->_page->SaveFile(pages[i]->_page->GetFilePath());
-            else
-                pages[i]->_page->SaveFile(QFileDialog::getSaveFileName(this, "Save " + pages[i]->_page->GetFileName(), ""));
-        }
+            return true;
+    return false;
+}
+
+void SaveFileDialog::saveFiles()
+{
+    auto pages = _ui->field->findChildren<SavePageContentCheckButton *>();
+    for (int i = 0; i < pages.count(); i++)
+        if (pages[i]->isChecked())
+            pages[i]->save();
 }

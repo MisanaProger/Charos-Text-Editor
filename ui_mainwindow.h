@@ -37,12 +37,16 @@ public:
     QAction *actionSelect_all;
     QAction *actionClose;
     QAction *actionExit;
+    QAction *actionAutohide_tab_bar;
+    QAction *actionShow_status_bar;
+    QAction *actionWrap_line;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QTabWidget *tabWidget;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuEdit;
+    QMenu *menuView;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -152,12 +156,33 @@ public:
         actionSelect_all->setIcon(icon9);
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName(QString::fromUtf8("actionClose"));
-        QIcon icon10(QIcon::fromTheme(QString::fromUtf8("tab-close")));
+        QIcon icon10;
+        iconThemeName = QString::fromUtf8("tab-close");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon10 = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon10.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
+        }
         actionClose->setIcon(icon10);
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
-        QIcon icon11(QIcon::fromTheme(QString::fromUtf8("exit")));
+        QIcon icon11;
+        iconThemeName = QString::fromUtf8("application-exit");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon11 = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon11.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
+        }
         actionExit->setIcon(icon11);
+        actionAutohide_tab_bar = new QAction(MainWindow);
+        actionAutohide_tab_bar->setObjectName(QString::fromUtf8("actionAutohide_tab_bar"));
+        actionAutohide_tab_bar->setCheckable(true);
+        actionShow_status_bar = new QAction(MainWindow);
+        actionShow_status_bar->setObjectName(QString::fromUtf8("actionShow_status_bar"));
+        actionShow_status_bar->setCheckable(true);
+        actionWrap_line = new QAction(MainWindow);
+        actionWrap_line->setObjectName(QString::fromUtf8("actionWrap_line"));
+        actionWrap_line->setCheckable(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -171,11 +196,13 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 582, 30));
+        menubar->setGeometry(QRect(0, 0, 582, 22));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuEdit = new QMenu(menubar);
         menuEdit->setObjectName(QString::fromUtf8("menuEdit"));
+        menuView = new QMenu(menubar);
+        menuView->setObjectName(QString::fromUtf8("menuView"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -183,6 +210,7 @@ public:
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuEdit->menuAction());
+        menubar->addAction(menuView->menuAction());
         menuFile->addAction(actionNew);
         menuFile->addAction(actionOpen);
         menuFile->addSeparator();
@@ -199,6 +227,9 @@ public:
         menuEdit->addAction(actionCut);
         menuEdit->addSeparator();
         menuEdit->addAction(actionSelect_all);
+        menuView->addAction(actionAutohide_tab_bar);
+        menuView->addAction(actionShow_status_bar);
+        menuView->addAction(actionWrap_line);
 
         retranslateUi(MainWindow);
 
@@ -220,8 +251,12 @@ public:
         actionSelect_all->setText(QCoreApplication::translate("MainWindow", "Select all", nullptr));
         actionClose->setText(QCoreApplication::translate("MainWindow", "Close", nullptr));
         actionExit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
+        actionAutohide_tab_bar->setText(QCoreApplication::translate("MainWindow", "Autohide tab bar", nullptr));
+        actionShow_status_bar->setText(QCoreApplication::translate("MainWindow", "Show status bar", nullptr));
+        actionWrap_line->setText(QCoreApplication::translate("MainWindow", "Wrap line", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
+        menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
     } // retranslateUi
 
 };

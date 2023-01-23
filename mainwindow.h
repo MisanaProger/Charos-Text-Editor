@@ -8,7 +8,9 @@
 #include <QDebug>
 #include <QCloseEvent>
 #include <QDialogButtonBox>
+#include "startpage.h"
 #include "tabpage.h"
+#include "statusbar.h"
 #include "savefiledialog.h"
 
 QT_BEGIN_NAMESPACE
@@ -27,22 +29,33 @@ public:
     ~MainWindow();
 
 private slots:
+
+    // tab widget
     void closeTab(int index);
+    void onTabChanged(int index);
+
+    // File menu
     void openFile();
     void newFile();
-    void onTabChanged(int index);
     void save();
-    void closeCurrentTab();
     bool saveAs();
+    void closeCurrentTab();
+
+    // Edit menu
     void undo();
     void redo();
     void cut();
     void copy();
     void paste();
-    void updateTitle(QString title = "");
     void selectAll();
 
-    void exitEditMode();
+    // View menu
+    void showStatusBar(bool val);
+    void wrapWords(bool val);
+
+    void updateTitle(QString title = "");
+    void showStartPage();
+    void hideStartPage();
 
 private:
     void connectNewTabPage(TabPage *tab);
@@ -50,6 +63,11 @@ private:
     TabPage *getCurrentPage();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *_ui;
+    StartPage *_startPage;
+    StatusBar *_statusBar;
+
+    // Settings
+    QTextOption::WrapMode _wrapMode = QTextOption::NoWrap;
 };
 #endif // MAINWINDOW_H

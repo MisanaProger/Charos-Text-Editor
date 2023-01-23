@@ -32,6 +32,8 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         textEdit = new QTextEdit(TabPage);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setAcceptRichText(true);
+        textEdit->setWordWrapMode(QTextOption::NoWrap);
 
         gridLayout->addWidget(textEdit, 0, 0, 1, 1);
 
